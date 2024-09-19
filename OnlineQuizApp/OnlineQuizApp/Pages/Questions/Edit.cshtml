@@ -1,0 +1,38 @@
+﻿@page
+@model OnlineQuizApp.Pages.Questions.EditModel
+@{
+    ViewData["Title"] = "Edit Question";
+}
+
+<h2>Edit Question</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="Question.Text" class="control-label"></label>
+        <input asp-for="Question.Text" class="form-control" />
+        <span asp-validation-for="Question.Text" class="text-danger"></span>
+    </div>
+
+    <h3>Answers</h3>
+
+    @for (int i = 0; i < Model.Answers.Count; i++)
+    {
+        <div class="form-group">
+            <label asp-for="Answers[i].Text" class="control-label">Answer @i</label>
+            <input asp-for="Answers[i].Text" class="form-control" />
+            <span asp-validation-for="Answers[i].Text" class="text-danger"></span>
+            
+            <div class="form-check">
+                <input asp-for="Answers[i].IsCorrect" class="form-check-input" />
+                <label asp-for="Answers[i].IsCorrect" class="form-check-label">Is Correct</label>
+            </div>
+        </div>
+    }
+
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a asp-page="./Index" class="btn btn-secondary">Cancel</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

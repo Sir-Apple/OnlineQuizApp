@@ -1,0 +1,16 @@
+﻿@page
+@model OnlineQuizApp.Pages.Quiz.IndexModel
+<h2>Take a Quiz</h2>
+<form method="post">
+    @foreach (var question in Model.Questions)
+    {
+        <h4>@question.Text</h4>
+        <div>
+            @foreach (var answer in question.Answers)
+            {
+                <input type="radio" name="Question_@question.Id" value="@answer.Id" /> @answer.Text
+            }
+        </div>
+    }
+    <button type="submit">Submit Quiz</button>
+</form>

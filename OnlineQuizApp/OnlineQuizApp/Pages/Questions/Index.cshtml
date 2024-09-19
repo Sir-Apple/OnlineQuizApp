@@ -1,0 +1,19 @@
+﻿@page
+@model OnlineQuizApp.Pages.Questions.IndexModel
+<h2>Question List</h2>
+<a asp-page="/Questions/Create">Add New Question</a>
+<table>
+    <tr>
+        <th>Text</th>
+        <th>Actions</th>
+    </tr>
+    @foreach (var question in Model.Questions)
+    {
+        <tr>
+            <td>@question.Text</td>
+            <td>
+                <a asp-page="/Questions/Edit" asp-route-id="@question.Id">Edit</a>
+            </td>
+        </tr>
+    }
+</table>

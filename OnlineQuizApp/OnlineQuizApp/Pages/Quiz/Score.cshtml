@@ -1,0 +1,12 @@
+﻿@page
+@model OnlineQuizApp.Pages.Quiz.ScoreModel
+@{
+    ViewData["Title"] = "Quiz Score";
+}
+
+<h2>Your Quiz Score</h2>
+
+<p>You answered @Model.Score out of @Model.TotalQuestions questions correctly!</p>
+
+<a asp-page="/Index" class="btn btn-primary">Go to Home</a>
+<a asp-page="/Quiz/TakeQuiz" class="btn btn-secondary">Retake Quiz</a>
